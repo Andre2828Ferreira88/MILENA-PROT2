@@ -27,16 +27,15 @@ function initWhatsApp(){
     const fd = new FormData(form);
     const nome = (fd.get("nome") || "").toString().trim();
     const whatsapp = (fd.get("whatsapp") || "").toString().trim();
-    const segmento = (fd.get("segmento") || "").toString().trim();
 
     const text =
       `${BASE_MESSAGE}\n\n` +
       `Nome: ${nome}\n` +
-      `WhatsApp: ${whatsapp}\n` +
-      `Segmento: ${segmento}`;
+      `WhatsApp: ${whatsapp}`;
 
     window.open(waLink(text), "_blank", "noopener,noreferrer");
   });
 }
 
 document.addEventListener("DOMContentLoaded", initWhatsApp);
+
