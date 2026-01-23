@@ -1,0 +1,29 @@
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  border-radius: 999px;
+  font-weight: 700;           /* título/botão bold conforme especificação */
+  padding: 16px 26px;         /* especificação */
+  min-height: 52px;           /* especificação */
+  cursor:pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary{
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.btn-lg{
+  min-height: 56px;
+  padding: 18px 30px;
+}
+
+.link-cta{
+  display:inline-block;
+  margin-top: 10px;
+  color: var(--brand-1);
+  text-decoration: underline;
+}
