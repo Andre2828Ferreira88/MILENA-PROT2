@@ -1,0 +1,8 @@
+.pain-list{
+  margin: 14px 0 0;
+  padding-left: 0;
+  list-style: none;
+  color: var(--muted);
+  display:grid;
+  gap: 10px;
+}
