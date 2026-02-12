@@ -127,21 +127,32 @@
     <div class="container hero-grid">
 
       <div class="hero-copy reveal">
-        <h1>Assessoria Jurídica Empresarial Mensal para Pequenas Empresas</h1>
+        <h1> Assessoria Jurídica Empresarial para Pequenas Empresas</h1>
 
         <p class="subtitle">
-          Contratos, trabalhista preventivo e apoio societário para empresas de comércio e serviços com até 20 funcionários.
+          Contratos, trabalhista preventivo e apoio societário para empresas de comércio e serviços.
+          Sem improvisos. Sem sustos jurídicos.
         </p>
 
-        <div class="microbullets">
-          <span>✔ Atendimento direto com advogada</span>
-          <span>✔ Rotina jurídica organizada todo mês</span>
-          <span>✔ Osasco e São Paulo (online e presencial)</span>
+        <div class="microbullets microbullets--icons" aria-label="Diferenciais">
+          <span class="mbi">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4a4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z" fill="currentColor"/></svg>
+            Atendimento direto
+          </span>
+          <span class="mbi">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v2H7V3Zm-2 4h14v14H5V7Zm2 2v10h10V9H7Z" fill="currentColor"/></svg>
+            Rotina previsível
+          </span>
+          <span class="mbi">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9a2 2 0 1 1 2-2a2 2 0 0 1-2 2Z" fill="currentColor"/></svg>
+            Osasco e SP • online/presencial
+          </span>
         </div>
+
       </div>
 
       <aside class="hero-form card reveal">
-        <h3>Receba a proposta no WhatsApp</h3>
+        <h3>Preencha o formulário para receber um atendimento personalizado</h3>
 
         <form class="form js-wa-form">
           <label>
@@ -155,152 +166,208 @@
           </label>
 
           <button class="btn btn-primary" type="submit">
-            Quero receber a proposta
+            Falar com Especialistas 
           </button>
 
-          <small>Atendimento em horário comercial. Retornamos o quanto antes.</small>
         </form>
       </aside>
 
     </div>
   </section>
 
+  <section class="section alt-soft" id="assistente">
+  <div class="container">
+
+    <div class="section-head">
+      <h2>Assistente de Diagnóstico (2 min)</h2>
+    </div>
+
+    <div class="card bot">
+      <div class="bot-top">
+        <div class="bot-orb" aria-hidden="true"></div>
+        <div>
+          <h3 class="bot-title">Assistente Jurídico</h3>
+          <p class="lead bot-sub">Responda e receba um diagnóstico inicial + mensagem pronta no WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="bot-hud" aria-hidden="true">
+  <div class="bot-hud__grid"></div>
+  <div class="bot-hud__scan"></div>
+  <div class="bot-hud__noise"></div>
+</div>
+
+<div class="bot-meta">
+  <div class="bot-meta__left">
+    <span class="bot-badge">DIAGNÓSTICO • 2026</span>
+    <span class="bot-status" id="botStatus">Inicializando…</span>
+  </div>
+
+  <div class="bot-meta__right">
+    <span class="bot-step" id="botStep">0/5</span>
+    <div class="bot-progress" aria-label="Progresso">
+      <span id="botProgressFill"></span>
+    </div>
+  </div>
+</div>
+
+
+      <div class="bot-chat" id="botChat"></div>
+
+      <div class="bot-actions">
+        <button type="button" class="btn btn-primary bot-send" id="botSend" disabled>
+          Enviar diagnóstico no WhatsApp
+        </button>
+        <small class="bot-mini">Contato direto com a advogada. Sem compromisso.</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
   <!-- =========================
        DORES / DIFERENCIAIS (SLIDES)
        ========================= -->
-  <section class="section pain alt-soft" id="diferenciais">
-    <div class="container">
+ <section class="section pain alt-soft" id="diferenciais">
+  <div class="container">
 
-      <div class="pain-shell reveal" data-pain-slider>
-        <div class="pain-slider">
-          <div class="pain-track" data-pain-track>
+    <div class="section-head">
+      <h2 class="pain-title">
+        Sem orientação jurídica, decisões comuns se transformam em
+        passivos trabalhistas, contratos frágeis e prejuízos financeiros.
+      </h2>
+    </div>
 
-            <article class="pain-slide card is-active" data-pain-slide>
-              <div class="pain-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3 1.8 20.2c-.4.7.1 1.8 1 1.8h18.4c.9 0 1.4-1.1 1-1.8L12 3Z" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M12 9v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  <path d="M12 17.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3>Trabalhista</h3>
-              <p>Demissão e advertência sem orientação viram risco e custo.</p>
-            </article>
+    <div class="pain-grid">
 
-            <article class="pain-slide card" data-pain-slide>
-              <div class="pain-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M14 3v4a2 2 0 0 0 2 2h4" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M8 12h8M8 16h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3>Contratos</h3>
-              <p>Contrato fraco abre margem para cancelamento e inadimplência.</p>
-            </article>
-
-            <article class="pain-slide card" data-pain-slide>
-              <div class="pain-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  <path d="M4 8h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M2 13h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3>Prestadores</h3>
-              <p>Sem cláusulas, a responsabilidade pode cair na empresa.</p>
-            </article>
-
-            <article class="pain-slide card" data-pain-slide>
-              <div class="pain-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M8 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/>
-                  <path d="M14 21a5 5 0 0 1 10 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                  <path d="M0 21a5 5 0 0 1 10 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <h3>Societário</h3>
-              <p>Sem regras claras, surgem conflitos e o negócio trava.</p>
-            </article>
-
-          </div>
+      <article class="pain-card card">
+        <div class="pain-icon">
+          <!-- ícone trabalhista -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3 1.8 20.2c-.4.7.1 1.8 1 1.8h18.4c.9 0 1.4-1.1 1-1.8L12 3Z" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
         </div>
+        <h3>Trabalhista</h3>
+        <p>Demissões, advertências e decisões internas sem orientação técnica podem gerar processos e passivos inesperados.</p>
+      </article>
 
-        <!-- Botões (PC + Mobile) -->
-        <button class="pain-nav pain-prev" type="button" aria-label="Anterior" data-pain-prev>‹</button>
-        <button class="pain-nav pain-next" type="button" aria-label="Próximo" data-pain-next>›</button>
-      </div>
+      <article class="pain-card card">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Contratos</h3>
+        <p>Contratos genéricos ou mal estruturados abrem margem para inadimplência, cancelamentos e conflitos.</p>
+      </article>
 
-      <div class="center reveal">
-        <a class="btn btn-primary js-wa-cta" data-wa-source="diferenciais" href="#">
-          Agendar consultoria
-        </a>
-      </div>
+      <article class="pain-card card">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 8h16v10H4z" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Prestadores</h3>
+        <p>Sem cláusulas adequadas, a responsabilidade jurídica pode recair sobre a empresa contratante.</p>
+      </article>
+
+      <article class="pain-card card">
+        <div class="pain-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Societário</h3>
+        <p>Falta de regras claras entre sócios pode gerar conflitos e travar o crescimento do negócio.</p>
+      </article>
 
     </div>
-  </section>
+
+    <div class="center">
+      <a class="btn btn-primary js-wa-cta" data-wa-source="diferenciais" href="#">
+        Agendar consultoria
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
 
   <!-- =========================
        COMO FUNCIONA
        ========================= -->
   <section class="section steps alt-warm" id="como-funciona">
-    <div class="container">
-      <h2 class="section-head reveal">Com metodologia clara e comunicação direta, você acompanha cada etapa sem surpresas.</h2>
+  <div class="container">
+    <h2 class="section-head reveal">
+      Com metodologia clara e comunicação direta, você acompanha cada etapa sem surpresas.
+    </h2>
 
-      <div class="steps-slider reveal" data-steps-slider>
-        <div class="steps-track" data-steps-track>
+    <div class="steps-slider reveal" data-steps-slider>
+      <div class="steps-track" data-steps-track>
 
-          <div class="card step">
-            <span class="step-n">1.</span>
-            <h3>Diagnóstico rápido da empresa</h3>
-            <p>Entendemos sua operação, seus contratos e sua rotina com equipe para identificar riscos e prioridades.</p>
-            <p>✔ Contratos atuais e modelo de prestação</p>
-            <p>✔ Rotina com funcionários/prestadores</p>
-            <p>✔ Principais dores do gestor</p>
-          </div>
+        <div class="card step">
+          <span class="step-n">1.</span>
+          <h3>Diagnóstico rápido da empresa</h3>
+          <p>Entendemos sua operação, seus contratos e sua rotina com equipe para identificar riscos e prioridades.</p>
 
-          <div class="card step">
-            <span class="step-n">2.</span>
-            <h3>Acompanhamento com prioridade</h3>
-            <p>Definimos o que está incluso no mês, o canal de atendimento e o prazo de retorno para demandas do dia a dia.</p>
-            <p>✔ Escopo e prioridades do mês</p>
-            <p>✔ Atendimento por WhatsApp/E-mail</p>
-            <p>✔ Retorno em até 1 dia útil</p>
-          </div>
-
-          <div class="card step">
-            <span class="step-n">3.</span>
-            <h3>Atendimento contínuo e estratégico</h3>
-            <p>Você tem apoio recorrente para contratos, dúvidas trabalhistas, notificações e decisões estratégicas.</p>
-            <p>✔ Contratos e revisões</p>
-            <p>✔ Orientações trabalhistas preventivas</p>
-            <p>✔ Notificações e inadimplência</p>
-          </div>
-
+          <ul class="step-points">
+            <li>Contratos atuais e modelo de prestação</li>
+            <li>Rotina com funcionários e prestadores</li>
+            <li>Principais dores do gestor</li>
+          </ul>
         </div>
-      </div>
 
-      <div class="center reveal">
-        <a class="btn btn-primary js-wa-cta" data-wa-source="como-funciona" href="#">
-          Agendar consultoria
-        </a>
-      </div>
+        <div class="card step">
+          <span class="step-n">2.</span>
+          <h3>Acompanhamento com prioridade</h3>
+          <p>Definimos o que está incluso no mês, o canal de atendimento e o prazo de retorno para demandas do dia a dia.</p>
 
+          <ul class="step-points">
+            <li>Escopo e prioridades do mês</li>
+            <li>Atendimento por WhatsApp e e-mail</li>
+            <li>Retorno em até 1 dia útil</li>
+          </ul>
+        </div>
+
+        <div class="card step">
+          <span class="step-n">3.</span>
+          <h3>Atendimento contínuo e estratégico</h3>
+          <p>Você tem apoio recorrente para contratos, dúvidas trabalhistas, notificações e decisões estratégicas.</p>
+
+          <ul class="step-points">
+            <li>Contratos e revisões</li>
+            <li>Orientações trabalhistas preventivas</li>
+            <li>Notificações e inadimplência</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
-  </section>
+
+    <div class="center reveal">
+      <a class="btn btn-primary js-wa-cta" data-wa-source="como-funciona" href="#">
+        Agendar consultoria
+      </a>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- =========================
        O QUE ESTÁ INCLUSO
        ========================= -->
   <section class="section included alt-soft" id="inclui">
-    <div class="container">
+  <div class="container">
 
-      <div class="section-head reveal">
-        <h2>O que está incluso na assessoria?</h2>
-      </div>
+    <div class="section-head reveal">
+      <h2>Nossas soluções</h2>
+    </div>
 
-      <div class="included-slider reveal" data-included-slider>
+    <div class="included-shell reveal" data-included-slider>
+      <div class="included-slider">
         <div class="included-track" data-included-track>
 
           <article class="included-card" data-ico="work">
@@ -370,14 +437,19 @@
         </div>
       </div>
 
-      <div class="center reveal">
-        <a class="btn btn-primary js-wa-cta" data-wa-source="inclui" href="#">
-          Falar no WhatsApp e solicitar proposta
-        </a>
-      </div>
-
+      <!-- Setas (manual) -->
+      <button class="included-nav included-prev" type="button" aria-label="Anterior" data-included-prev>‹</button>
+      <button class="included-nav included-next" type="button" aria-label="Próximo" data-included-next>›</button>
     </div>
-  </section>
+
+    <div class="center reveal">
+      <a class="btn btn-primary js-wa-cta" data-wa-source="inclui" href="#">
+        Falar no WhatsApp e solicitar proposta
+      </a>
+    </div>
+
+  </div>
+</section>
 
   <!-- =========================
        AUTORIDADE / SOBRE
@@ -387,7 +459,12 @@
 
       <div class="reveal">
         <h2>Dra. Milena Esperandio — OAB/SP XXXXX</h2>
-        <p>Direito Empresarial | Assessoria Jurídica Mensal</p>
+        <p>Atuo com foco em assessoria jurídica empresarial, ajudando gestores
+          a tomarem decisões seguras antes que o problema apareça.
+
+          A assessoria mensal existe para organizar o jurídico da empresa,
+          evitar riscos desnecessários e dar previsibilidade ao gestor.
+          </p>
       </div>
 
       <div class="authority-photo reveal">

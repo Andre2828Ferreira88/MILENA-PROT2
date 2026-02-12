@@ -212,72 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // INCLUDED "Netflix" auto-scroll
 // (pausa só segurando)
 // ===============================
-(function initIncludedCatalog(){
-  const slider = document.querySelector("[data-included-slider]");
-  const track  = document.querySelector("[data-included-track]");
-  if(!slider || !track) return;
 
-  // duplica os cards para loop infinito
-  const originals = Array.from(track.children);
-  if(originals.length < 2) return;
-
-  if(!track.dataset.cloned){
-    originals.forEach(node => track.appendChild(node.cloneNode(true)));
-    track.dataset.cloned = "1";
-  }
-
-  let x = 0;
-  let paused = false;
-  let speed = 0.55; // diminui: 0.25 = bem lento
-  let rafId = null;
-
-  const getHalfWidth = () => {
-    let w = 0;
-    const children = Array.from(track.children);
-    const half = Math.floor(children.length / 2);
-
-    for(let i=0;i<half;i++){
-      const el = children[i];
-      const rect = el.getBoundingClientRect();
-      w += rect.width;
-    }
-
-    const gap = parseFloat(getComputedStyle(track).gap || 0);
-    w += gap * (half - 1);
-    return w;
-  };
-
-  let halfWidth = 0;
-
-  const recalc = () => {
-    // espera layout estabilizar
-    halfWidth = getHalfWidth();
-  };
-
-  window.addEventListener("resize", recalc);
-  setTimeout(recalc, 50);
-
-  function tick(){
-    if(!paused){
-      x -= speed;
-      if(Math.abs(x) >= halfWidth) x = 0;
-      track.style.transform = `translate3d(${x}px,0,0)`;
-    }
-    rafId = requestAnimationFrame(tick);
-  }
-
-  const pause = () => { paused = true; track.classList.add("is-paused"); };
-  const resume = () => { paused = false; track.classList.remove("is-paused"); };
-
-  // "segurar" no PC e no mobile (pointer events)
-  slider.addEventListener("pointerdown", pause);
-  window.addEventListener("pointerup", resume);
-  window.addEventListener("pointercancel", resume);
-
-  // start
-  cancelAnimationFrame(rafId);
-  tick();
-})();
 // Parallax sutil no HERO (leve e premium)
 (function heroParallax(){
   const hero = document.querySelector(".hero");
@@ -302,3 +237,298 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("mousemove", onMove, { passive: true });
 })();
+// =========================
+// BOT (2026) — Assistente (Tech HUD + typing + progress)
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("assistente");
+  if (!root) return;
+
+  const chat = document.getElementById("botChat");
+  const send = document.getElementById("botSend");
+  const botStatus = document.getElementById("botStatus");
+  const botStep = document.getElementById("botStep");
+  const botProgressFill = document.getElementById("botProgressFill");
+
+  if (!chat || !send) return;
+
+  const WHATSAPP_NUMBER = "5511933082223"; // ajuste se necessário
+
+  const state = {
+    dor: "",
+    funcionarios: "",
+    prestadores: "",
+    contrato: "",
+    urgencia: "",
+    risco: 0,
+  };
+
+  const steps = [
+    {
+      key: "dor",
+      ask: "Qual é a maior preocupação jurídica da sua empresa hoje?",
+      options: [
+        { label: "Trabalhista", value: "Trabalhista (demissão, advertência, rotina)", score: 3 },
+        { label: "Contratos", value: "Contratos (clientes e prestação de serviços)", score: 2 },
+        { label: "Prestadores", value: "Prestadores (vínculo, responsabilidade, cláusulas)", score: 3 },
+        { label: "Societário", value: "Societário (sócios, quotas, alteração contratual)", score: 2 },
+      ],
+    },
+    {
+      key: "funcionarios",
+      ask: "Quantos funcionários (CLT) você tem hoje?",
+      options: [
+        { label: "0", value: "0", score: 1 },
+        { label: "1–5", value: "1–5", score: 2 },
+        { label: "6–20", value: "6–20", score: 3 },
+        { label: "Acima de 20", value: "Acima de 20", score: 3 },
+      ],
+    },
+    {
+      key: "prestadores",
+      ask: "Você utiliza prestadores (PJ/autônomos) com frequência?",
+      options: [
+        { label: "Não", value: "Não", score: 0 },
+        { label: "Às vezes", value: "Às vezes", score: 2 },
+        { label: "Sim, frequentemente", value: "Sim, frequentemente", score: 3 },
+      ],
+    },
+    {
+      key: "contrato",
+      ask: "Os contratos atuais foram revisados por advogado?",
+      options: [
+        { label: "Sim, revisados", value: "Sim, revisados", score: 0 },
+        { label: "Modelo genérico", value: "Modelo genérico", score: 2 },
+        { label: "Às vezes / depende", value: "Às vezes / depende", score: 2 },
+        { label: "Não usamos", value: "Não usamos", score: 3 },
+      ],
+    },
+    {
+      key: "urgencia",
+      ask: "Qual é o momento da sua demanda hoje?",
+      options: [
+        { label: "Preventivo (organizar)", value: "Preventivo (organizar)", score: 1 },
+        { label: "Tenho uma decisão agora", value: "Tenho uma decisão agora", score: 2 },
+        { label: "Já deu problema", value: "Já deu problema", score: 3 },
+      ],
+    },
+  ];
+
+  const setMeta = (i) => {
+    const total = steps.length;
+    const done = Math.max(0, Math.min(i, total));
+    if (botStep) botStep.textContent = `${done}/${total}`;
+    if (botProgressFill) botProgressFill.style.width = `${(done / total) * 100}%`;
+  };
+
+  const setStatus = (txt) => {
+    if (botStatus) botStatus.textContent = txt;
+  };
+
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+
+  const scrollBottom = () => {
+    chat.scrollTop = chat.scrollHeight;
+  };
+
+  const addBotMsg = (text) => {
+    const msg = el("div", "bot-msg is-bot", text);
+    chat.appendChild(msg);
+    scrollBottom();
+  };
+
+  const addUserMsg = (text) => {
+    const msg = el("div", "bot-msg is-user", text);
+    chat.appendChild(msg);
+    scrollBottom();
+  };
+
+  const addTyping = () => {
+    const wrap = el("div", "bot-msg is-bot");
+    const t = el("div", "bot-typing", "");
+    t.appendChild(el("span"));
+    t.appendChild(el("span"));
+    t.appendChild(el("span"));
+    wrap.appendChild(t);
+    wrap.dataset.typing = "1";
+    chat.appendChild(wrap);
+    scrollBottom();
+    return wrap;
+  };
+
+  const removeTyping = () => {
+    chat.querySelectorAll('[data-typing="1"]').forEach(n => n.remove());
+  };
+
+  const clearOptions = () => {
+    chat.querySelectorAll(".bot-options").forEach(n => n.remove());
+  };
+
+  const addOptions = (options, onPick) => {
+    const wrap = el("div", "bot-options");
+    options.forEach((o) => {
+      const b = el("button", "bot-opt", o.label);
+      b.type = "button";
+      b.addEventListener("click", () => onPick(o, b));
+      wrap.appendChild(b);
+    });
+    chat.appendChild(wrap);
+    scrollBottom();
+    return wrap;
+  };
+
+  const riskLabel = (score) => {
+    if (score <= 4) return "Baixo";
+    if (score <= 8) return "Médio";
+    return "Alto";
+  };
+
+  const recommendation = (s) => {
+    const level = riskLabel(s.risco);
+    if (level === "Alto") {
+      return "Recomendação: priorizar revisão de contratos e rotinas (trabalhista/prestadores) para reduzir exposição imediata e evitar decisões no improviso.";
+    }
+    if (level === "Médio") {
+      return "Recomendação: revisar pontos críticos e estruturar rotina preventiva para manter previsibilidade e reduzir passivos.";
+    }
+    return "Recomendação: manter prevenção contínua e revisar documentos-chave periodicamente para sustentar segurança jurídica.";
+  };
+
+  const buildSummary = () => {
+    const level = riskLabel(state.risco);
+    const rec = recommendation(state);
+
+    return {
+      level,
+      rec,
+      text:
+        `Olá! Fiz o diagnóstico no site e quero entender a assessoria jurídica mensal.\n\n` +
+        `Diagnóstico inicial:\n` +
+        `• Principal preocupação: ${state.dor}\n` +
+        `• Funcionários (CLT): ${state.funcionarios}\n` +
+        `• Prestadores: ${state.prestadores}\n` +
+        `• Contratos: ${state.contrato}\n` +
+        `• Momento: ${state.urgencia}\n\n` +
+        `Nível de risco percebido: ${level}\n` +
+        `${rec}\n\n` +
+        `Pode me enviar a proposta?`
+    };
+  };
+
+  let idx = 0;
+
+  const next = async () => {
+    clearOptions();
+    removeTyping();
+
+    setMeta(idx);
+    setStatus("Analisando…");
+
+    if (idx >= steps.length) {
+      const summary = buildSummary();
+
+      // typing + mensagens finais
+      const t = addTyping();
+      setTimeout(() => {
+        t.remove();
+        setStatus("Diagnóstico pronto");
+        addBotMsg("Perfeito. Com base nas suas respostas, segue um diagnóstico inicial:");
+        addBotMsg(`Nível de risco percebido: ${summary.level}`);
+        addBotMsg(summary.rec);
+        addBotMsg("Se quiser, eu já monto a mensagem completa e você fala direto com a advogada no WhatsApp.");
+        send.disabled = false;
+        send.dataset.summary = summary.text;
+        setMeta(steps.length);
+      }, 520);
+
+      return;
+    }
+
+    const step = steps[idx];
+
+    // typing + pergunta
+    const t = addTyping();
+    setTimeout(() => {
+      t.remove();
+      setStatus(`Coletando dados • ${step.key}`);
+      addBotMsg(step.ask);
+
+      addOptions(step.options, (pick, btn) => {
+        // visual selected
+        chat.querySelectorAll(".bot-opt").forEach(b => b.classList.remove("is-selected"));
+        btn.classList.add("is-selected");
+
+        // salva
+        state[step.key] = pick.value;
+        state.risco += Number(pick.score || 0);
+
+        addUserMsg(pick.label);
+
+        idx += 1;
+
+        // ritmo “real”
+        setTimeout(next, 520);
+      });
+    }, 420);
+  };
+
+  // start
+  chat.innerHTML = "";
+  send.disabled = true;
+
+  setStatus("Inicializando…");
+  setMeta(0);
+
+  addBotMsg("Olá! Vou fazer um diagnóstico rápido e objetivo para entender sua empresa.");
+  setTimeout(() => {
+    setStatus("Pronto para iniciar");
+    next();
+  }, 520);
+
+  send.addEventListener("click", () => {
+    const text = send.dataset.summary || "";
+    const link = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(link, "_blank", "noopener,noreferrer");
+  });
+});
+// =========================
+// INCLUDED — Manual slider (sem autoplay)
+// =========================
+// =========================
+// INCLUDED — Manual slider (sem autoplay) [FIX]
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const shell = document.querySelector("[data-included-slider]");
+  if (!shell) return;
+
+  const scroller = shell.querySelector(".included-slider"); // QUEM ROLA
+  const track = shell.querySelector("[data-included-track]");
+  if (!scroller || !track) return;
+
+  const prev = shell.querySelector("[data-included-prev]");
+  const next = shell.querySelector("[data-included-next]");
+
+  const getStep = () => {
+    const card = track.querySelector(".included-card");
+    if (!card) return 320;
+
+    const cardW = card.getBoundingClientRect().width;
+
+    // gap real do track
+    const gap = parseFloat(getComputedStyle(track).gap || "18") || 18;
+    return cardW + gap;
+  };
+
+  const scrollByDir = (dir) => {
+    scroller.scrollBy({ left: getStep() * dir, behavior: "smooth" });
+  };
+
+  prev?.addEventListener("click", () => scrollByDir(-1));
+  next?.addEventListener("click", () => scrollByDir(1));
+});
+

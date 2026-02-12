@@ -128,6 +128,51 @@
 .steps-nav{
   display: none;
 }
+  /* =========================
+   FIX: bolinhas alinhadas (sem torto)
+   ========================= */
+.step-points{
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+/* cada item vira uma linha flex */
+.step-points li{
+  display: flex;
+  align-items: flex-start;   /* ancora no topo do texto */
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* remove qualquer ::before antigo */
+.step-points li::before{
+  content: none !important;
+}
+
+/* cria a bolinha “de verdade” com ::marker fake (span via pseudo) */
+.step-points li::after{
+  content:"";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--brand-2);
+  box-shadow: 0 0 0 2px rgba(199,163,91,.18);
+  margin-top: .45em;         /* alinha com a primeira linha do texto */
+  flex: 0 0 8px;
+  order: -1;                 /* coloca antes do texto */
+}
+
+/* separador sutil entre itens */
+.step-points li + li{
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+
 
 /* =========================================================
    MOBILE: vira slider por swipe
