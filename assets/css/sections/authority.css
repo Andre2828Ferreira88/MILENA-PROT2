@@ -18,3 +18,11 @@
 @media (max-width: 920px){
   .authority-grid{ grid-template-columns: 1fr; }
 }
+
+@media (max-width: 920px){
+  .authority-photo{
+    order: -1;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
