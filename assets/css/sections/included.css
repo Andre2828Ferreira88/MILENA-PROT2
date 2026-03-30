@@ -1,4 +1,4 @@
-/*/* =========================================
+/* =========================================
    INCLUDED (Catalog Premium)
    arquivo: assets/css/sections/included.css
    ========================================= */
@@ -231,23 +231,16 @@
   .included-slider{
     overflow-x: auto !important;
     overflow-y: hidden !important;
-
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-
-    /* snap suave no mobile */
     scroll-snap-type: x mandatory;
     scroll-padding-left: 18px;
-    scroll-padding-right: 18px;
-
-    /* deixa confortável pro dedo */
     padding: 6px 18px 14px;
     scrollbar-width: none;
     touch-action: pan-x;
   }
   .included-slider::-webkit-scrollbar{ display:none; }
 
-  /* track não pode ficar “travado” por transform antigo */
   .included-track{
     transform: none !important;
     will-change: auto !important;
@@ -256,14 +249,12 @@
   }
 
   .included-card{
-    width: 86vw;              /* 1 card por vez */
+    width: 86vw;
     scroll-snap-align: start;
   }
 
-  /* MOSTRA as setas no mobile */
+  /* esconde setas — swipe é suficiente no mobile */
   .included-nav{
-    display: grid !important;
+    display: none !important;
   }
 }
-
-
