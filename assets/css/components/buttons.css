@@ -1,29 +1,175 @@
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap: 10px;
+/* ═══════════════════════════════════════════
+   BUTTONS — MESP Advocacia
+   ═══════════════════════════════════════════ */
+
+/* ── Base ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border-radius: 999px;
-  font-weight: 700;           /* título/botão bold conforme especificação */
-  padding: 16px 26px;         /* especificação */
-  min-height: 52px;           /* especificação */
-  cursor:pointer;
-  border: 1px solid transparent;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  min-height: 50px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background .22s ease,
+    color .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease,
+    transform .15s ease;
+  -webkit-font-smoothing: antialiased;
 }
 
-.btn-primary{
-  background: var(--btn-bg);
-  color: var(--btn-text);
+/* ripple ao clicar */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.12);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity .2s;
+}
+.btn:active::after { opacity: 1; }
+.btn:active { transform: scale(.97); }
+
+/* ── Primário (dourado) ── */
+.btn-primary {
+  background: var(--brand-2);
+  color: #fff;
+  border-color: var(--brand-2);
+  box-shadow:
+    0 4px 14px rgba(199,163,91,.30),
+    0 1px 3px rgba(0,0,0,.10);
+}
+.btn-primary:hover {
+  background: #b8903e;
+  border-color: #b8903e;
+  box-shadow:
+    0 8px 24px rgba(199,163,91,.40),
+    0 2px 6px rgba(0,0,0,.12);
+  transform: translateY(-2px);
 }
 
-.btn-lg{
+/* ── Grande ── */
+.btn-lg {
+  font-size: .875rem;
+  padding: 17px 36px;
   min-height: 56px;
-  padding: 18px 30px;
+  letter-spacing: .1em;
 }
 
-.link-cta{
-  display:inline-block;
+/* ── Outline roxo ── */
+.btn-outline {
+  background: transparent;
+  color: var(--brand-1);
+  border-color: var(--brand-1);
+}
+.btn-outline:hover {
+  background: var(--brand-1);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(91,44,85,.20);
+  transform: translateY(-2px);
+}
+
+/* ── Link CTA simples ── */
+.link-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin-top: 10px;
   color: var(--brand-1);
-  text-decoration: underline;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(91,44,85,.3);
+  padding-bottom: 2px;
+  transition: border-color .18s, color .18s;
 }
+.link-cta:hover {
+  color: var(--brand-2);
+  border-color: var(--brand-2);
+}
+
+
+
+/* ── Footer WhatsApp link ── */
+.footer-wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+  border: 1.5px solid rgba(199,163,91,.5);
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .2s, color .2s, box-shadow .2s, transform .15s;
+}
+.footer-wa-link:hover {
+  background: var(--brand-2);
+  color: #fff;
+  border-color: var(--brand-2);
+  box-shadow: 0 6px 18px rgba(199,163,91,.30);
+  transform: translateY(-1px);
+}
+
+/* ── DA cards CTA ── */
+.da-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .2s, color .2s, box-shadow .2s, transform .15s;
+  margin-top: auto;
+  cursor: pointer;
+}
+.da-card--primary .da-cta {
+  background: var(--brand-2);
+  color: #fff;
+  border: 1.5px solid var(--brand-2);
+  box-shadow: 0 4px 12px rgba(199,163,91,.25);
+}
+.da-card--primary .da-cta:hover {
+  background: #b8903e;
+  border-color: #b8903e;
+  box-shadow: 0 8px 20px rgba(199,163,91,.35);
+  transform: translateY(-2px);
+}
+.da-card--secondary .da-cta {
+  background: transparent;
+  color: var(--brand-1);
+  border: 1.5px solid var(--brand-1);
+}
+.da-card--secondary .da-cta:hover {
+  background: var(--brand-1);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(91,44,85,.20);
+  transform: translateY(-2px);
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .btn { font-size: .78rem; padding: 14px 22px; min-height: 46px; }
+  .btn-lg { font-size: .82rem; padding: 15px 26px; min-height: 50px; }
+} 
