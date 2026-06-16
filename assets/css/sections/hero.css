@@ -59,6 +59,14 @@
   color: #fff;
 }
 
+.hero h1 {
+  max-width: 680px !important;
+  font-size: clamp(2.6rem, 4.2vw, 5rem)!important   ;
+  line-height: 1.08!important;
+  letter-spacing: -0.035em!important;
+  font-weight: 700!important;
+}
+
 .hero .subtitle{
   opacity: .92;
 }
