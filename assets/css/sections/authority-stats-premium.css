@@ -236,3 +236,39 @@
     display: none !important;
   }
 }
+
+/* =========================================================
+   V55 — Authority copy update: Brasil / OAB separado
+   ========================================================= */
+#sobre .authority-stats--premium .stat-num--text{
+  font-size: clamp(1.55rem, 2.3vw, 2.35rem) !important;
+  line-height: .96 !important;
+  letter-spacing: -.035em !important;
+  font-weight: 650 !important;
+  color: #caa24d !important;
+  white-space: nowrap;
+}
+
+#sobre .authority-oab{
+  margin: -4px 0 18px !important;
+  color: #10131a !important;
+  font-size: clamp(1rem, 1.1vw, 1.12rem) !important;
+  line-height: 1.35 !important;
+}
+
+#sobre .authority-oab strong{
+  font-weight: 650 !important;
+}
+
+@media (max-width: 700px){
+  #sobre .authority-stats--premium .stat-num--text{
+    font-size: clamp(1.05rem, 5vw, 1.35rem) !important;
+    line-height: 1 !important;
+    letter-spacing: -.02em !important;
+  }
+
+  #sobre .authority-oab{
+    margin: -2px 0 14px !important;
+    font-size: .98rem !important;
+  }
+}
