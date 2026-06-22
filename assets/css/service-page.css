@@ -968,3 +968,218 @@ body.page-service--trabalhista #identificacao.service-intro .service-case-card {
     scroll-padding-left: 24px !important;
   }
 }
+
+
+/* =========================================================
+   V61 — service-intro organizada
+   Escopo: somente página trabalhista / carrossel de situações
+   ========================================================= */
+
+body.page-service--trabalhista #identificacao.service-intro--carousel {
+  padding: clamp(46px, 5vw, 72px) 0 clamp(42px, 4.8vw, 68px) !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-intro__inner {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-intro__head {
+  max-width: 1180px;
+  margin: 0 auto clamp(30px, 3.2vw, 44px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
+  column-gap: clamp(42px, 7vw, 112px);
+  row-gap: 18px;
+  align-items: end;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-section-label {
+  grid-column: 1 / -1;
+  width: fit-content;
+  margin: 0 0 4px !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .pain-title {
+  max-width: 660px !important;
+  margin: 0 !important;
+  padding-left: 22px !important;
+  font-size: clamp(2rem, 2.65vw, 3.25rem) !important;
+  line-height: 1.08 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.045em !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .lead {
+  max-width: 520px !important;
+  margin: 0 0 4px !important;
+  font-size: clamp(0.98rem, 1.05vw, 1.08rem) !important;
+  line-height: 1.62 !important;
+  color: rgba(17, 20, 28, 0.66) !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 0 !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases::before,
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 46px;
+  bottom: 18px;
+  width: min(9vw, 120px);
+  pointer-events: none;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases::before {
+  left: 0;
+  background: linear-gradient(90deg, #fbfaf8 0%, rgba(251,250,248,0) 100%);
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases::after {
+  right: 0;
+  background: linear-gradient(270deg, #fbfaf8 0%, rgba(251,250,248,0) 100%);
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__top {
+  max-width: 1180px !important;
+  margin: 0 auto 14px !important;
+  padding-inline: 24px !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(94, 43, 90, 0.88);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__eyebrow::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: rgba(201, 162, 79, 0.42);
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__controls {
+  position: relative;
+  z-index: 5;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__viewport {
+  grid-auto-columns: clamp(260px, 20.5vw, 318px) !important;
+  gap: 16px !important;
+  padding: 4px max(24px, calc((100vw - 1180px) / 2)) 18px !important;
+  scroll-padding-left: max(24px, calc((100vw - 1180px) / 2));
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-case-card {
+  min-height: 218px !important;
+  padding: 24px 22px 22px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-color: rgba(94, 43, 90, 0.18) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82)) !important;
+  box-shadow: 0 18px 54px rgba(33, 18, 31, 0.045) !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-case-card__number {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  color: rgba(201, 162, 79, 0.86);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-case-card__icon {
+  width: 30px !important;
+  height: 30px !important;
+  margin-bottom: 18px !important;
+  color: #5e2b5a !important;
+  background: rgba(255,255,255,0.74) !important;
+  border-color: rgba(94, 43, 90, 0.13) !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-case-card h3 {
+  max-width: 19ch !important;
+  margin-bottom: 12px !important;
+  font-size: clamp(1rem, 1.05vw, 1.14rem) !important;
+  line-height: 1.15 !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.02em !important;
+}
+
+body.page-service--trabalhista #identificacao.service-intro--carousel .service-case-card p {
+  max-width: 28ch;
+  font-size: 0.9rem !important;
+  line-height: 1.52 !important;
+  color: rgba(17, 20, 28, 0.62) !important;
+}
+
+@media (max-width: 980px) {
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-intro__head {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    margin-left: 0;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .lead {
+    max-width: 680px !important;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases::before,
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases::after {
+    display: none;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__viewport {
+    grid-auto-columns: minmax(250px, 72vw) !important;
+    padding-inline: 24px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body.page-service--trabalhista #identificacao.service-intro--carousel {
+    padding: 40px 0 44px !important;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-intro__inner {
+    padding-inline: 20px;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .pain-title {
+    font-size: clamp(1.85rem, 8vw, 2.45rem) !important;
+    padding-left: 18px !important;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__top {
+    padding-inline: 20px !important;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-cases__viewport {
+    grid-auto-columns: minmax(252px, 82vw) !important;
+    padding-inline: 20px !important;
+  }
+
+  body.page-service--trabalhista #identificacao.service-intro--carousel .service-case-card {
+    min-height: 206px !important;
+  }
+}
+
