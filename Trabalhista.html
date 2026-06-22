@@ -21,12 +21,14 @@
   <link rel="stylesheet" href="assets/css/sections/cta-final.css" />
   <link rel="stylesheet" href="assets/css/sections/included.css">
   <link rel="stylesheet" href="assets/css/compact.css?v=hero-title-width-v30" />
-  <link rel="stylesheet" href="assets/css/sections/atendimento-pin.css?v=pin-native-v38" />
+  <link rel="stylesheet" href="assets/css/sections/atendimento-pin.css?v=formats-clean-v62" />
   <link rel="stylesheet" href="assets/css/sections/demandas-slider.css?v=invert-v40" />
   <link rel="stylesheet" href="./assets/css/typography-fine.css?v=hero-topo-fino-v39">
   <link rel="stylesheet" href="assets/css/sections/authority-stats-premium.css?v=authority-v55" />
-  <link rel="stylesheet" href="assets/css/service-page.css?v=trabalhista-cards-full-v45" />
+  <link rel="stylesheet" href="assets/css/service-page.css?v=service-organizado-v61" />
 
+  <link rel="stylesheet" href="assets/css/remove-label-icons.css?v=sem-icones-v60" />
+  <link rel="stylesheet" href="assets/css/sections/page-rhythm.css?v=padrao-v64" />
 </head>
 
 <body id="topo" class="page-service page-service--trabalhista">
@@ -137,70 +139,28 @@
         </div>
       </div>
 
-      <aside class="hero-form card reveal service-lead-form" aria-label="Formulário de atendimento trabalhista">
-        <div class="service-lead-form__head">
-          <span class="service-lead-form__eyebrow">Atendimento direcionado</span>
-          <h3>Fale com a advogada</h3>
-          <p>Preencha os dados e receba uma orientação inicial sobre a demanda da sua empresa.</p>
-        </div>
-
-        <form class="form js-wa-form service-lead-form__form" id="heroForm" data-service-form="trabalhista" novalidate>
-          <div class="service-lead-form__row service-lead-form__row--2">
-            <label>
-              <span>Nome</span>
-              <div class="input-wrap">
-                <input id="fieldNome" name="nome" type="text" placeholder="Seu nome" required autocomplete="name" />
-                <span class="input-check" aria-hidden="true"></span>
-              </div>
-              <span class="field-error" id="errorNome">Preencha seu nome</span>
-            </label>
-
-            <label>
-              <span>WhatsApp</span>
-              <div class="input-wrap">
-                <input id="fieldWa" name="whatsapp" type="tel" placeholder="(11) 91234-5678" required autocomplete="tel" />
-                <span class="input-check" aria-hidden="true"></span>
-              </div>
-              <span class="field-error" id="errorWa">Preencha seu WhatsApp</span>
-            </label>
-          </div>
-
+      <aside class="hero-form card reveal">
+        <h3>Fale com a advogada</h3>
+        <form class="form js-wa-form" id="heroForm" novalidate>
           <label>
-            <span>Nome da empresa</span>
+            <span>Nome</span>
             <div class="input-wrap">
-              <input id="fieldEmpresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization" />
+              <input id="fieldNome" name="nome" type="text" placeholder="Seu nome" required autocomplete="name" />
               <span class="input-check" aria-hidden="true"></span>
             </div>
+            <span class="field-error" id="errorNome">Preencha seu nome</span>
           </label>
-
           <label>
-            <span>Área de interesse</span>
-            <div class="input-wrap input-wrap--select">
-              <select id="fieldArea" name="area" required>
-                <option value="" selected disabled>Selecione a necessidade</option>
-                <option>Demissão ou desligamento</option>
-                <option>Reclamação trabalhista</option>
-                <option>Contrato, advertência ou acordo</option>
-                <option>Rotina trabalhista preventiva</option>
-                <option>Outro assunto trabalhista</option>
-              </select>
+            <span>WhatsApp</span>
+            <div class="input-wrap">
+              <input id="fieldWa" name="whatsapp" type="tel" placeholder="(11) 91234-5678" required autocomplete="tel" />
               <span class="input-check" aria-hidden="true"></span>
             </div>
-            <span class="field-error">Selecione uma área</span>
+            <span class="field-error" id="errorWa">Preencha seu WhatsApp</span>
           </label>
-
-          <label>
-            <span>Breve descrição da demanda</span>
-            <div class="input-wrap input-wrap--textarea">
-              <textarea id="fieldDemanda" name="demanda" rows="3" placeholder="Ex.: preciso analisar um desligamento, responder uma reclamação ou revisar um acordo."></textarea>
-            </div>
-          </label>
-
-          <button class="btn btn-primary service-lead-form__submit" type="submit" id="heroSubmit">
+          <button class="btn btn-primary" type="submit" id="heroSubmit">
             Quero falar com a advogada
           </button>
-
-          <small class="service-lead-form__note">Resposta direcionada para empresas e empresários.</small>
         </form>
       </aside>
 
@@ -223,7 +183,7 @@
 
       <div class="service-cases reveal" data-service-carousel>
         <div class="service-cases__top">
-          <span class="service-cases__eyebrow">Situações em que a MESP pode orientar sua empresa</span>
+          <span class="service-cases__eyebrow">Situações atendidas</span>
           <div class="service-cases__controls" aria-label="Controles do carrossel">
             <button class="service-cases__btn" type="button" data-service-prev aria-label="Voltar cards">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 5 8.5 12l7 7"/></svg>
@@ -236,6 +196,7 @@
 
         <div class="service-cases__viewport" data-service-track tabindex="0" aria-label="Carrossel de situações trabalhistas">
           <article class="service-case-card">
+            <span class="service-case-card__number">01</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M8 6V4.8A2.8 2.8 0 0 1 10.8 2h2.4A2.8 2.8 0 0 1 16 4.8V6"/><path d="M4 8h16v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8Z"/><path d="M9 12h6"/></svg>
             </div>
@@ -244,6 +205,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">02</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M6 8h12"/><path d="M7 8l-3 6h6L7 8Z"/><path d="m17 8-3 6h6l-3-6Z"/></svg>
             </div>
@@ -252,6 +214,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">03</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h5"/></svg>
             </div>
@@ -260,6 +223,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">04</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M7 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M17 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M2.5 21a5 5 0 0 1 9 0"/><path d="M13.5 21a4 4 0 0 1 8 0"/></svg>
             </div>
@@ -268,6 +232,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">05</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M7 12h10"/><path d="M9 9l-3 3 3 3"/><path d="m15 9 3 3-3 3"/><path d="M4 5h16v14H4z"/></svg>
             </div>
@@ -276,6 +241,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">06</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><path d="M8 4v4"/><path d="M16 10v4"/><path d="M11 16v4"/></svg>
             </div>
@@ -284,6 +250,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">07</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 0 0-7 7c0 3.5 2.5 5.2 3.4 7h7.2c.9-1.8 3.4-3.5 3.4-7a7 7 0 0 0-7-7Z"/><path d="M9 21h6"/><path d="M10 17h4"/></svg>
             </div>
@@ -292,6 +259,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">08</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-5"/></svg>
             </div>
@@ -300,6 +268,7 @@
           </article>
 
           <article class="service-case-card">
+            <span class="service-case-card__number">09</span>
             <div class="service-case-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="m8 12 2.4 2.4L16 9"/><path d="M8 7h8"/><path d="M8 17h8"/></svg>
             </div>
@@ -313,72 +282,54 @@
   </section>
 
   <!-- BLOCO 3 — FORMAS DE ATENDIMENTO / GSAP PIN -->
-  <section class="section atendimento-pin" id="atendimento" data-atendimento-pin>
-    <div class="atendimento-pin__grid">
+    <!-- BLOCO 3 — FORMAS DE ATENDIMENTO -->
+  <section class="section atendimento-formats" id="atendimento">
+    <div class="atendimento-formats__wrap">
 
-      <div class="atendimento-pin__left">
-        <div class="atendimento-pin__copy">
-          <span class="atendimento-pin__kicker">Atendimento jurídico empresarial</span>
-          <h2>Sua empresa pode contar com a MESP em diferentes áreas e formatos</h2>
-          <p>
-            Nem toda demanda exige uma assessoria mensal. Em alguns casos, a empresa precisa resolver
-            uma situação específica com segurança. Em outros, o ideal é contar com acompanhamento
-            jurídico contínuo para prevenir riscos, organizar documentos, estruturar decisões e
-            proteger o negócio.
-          </p>
-          <p>
-            A MESP atende empresas e empresários em demandas pontuais ou por meio de assessoria
-            jurídica mensal, com atuação estratégica em diferentes áreas do Direito Empresarial,
-            Civil, Trabalhista e Preventivo.
-          </p>
-          <a class="atendimento-pin__btn js-wa-cta" data-wa-source="atendimento-formatos" href="#">
-            Entender o melhor formato para minha empresa
-          </a>
-          <span class="atendimento-pin__footnote">
-            Atendimento online para empresas de todo o Brasil ou presencialmente no escritório, em Osasco/SP, mediante agendamento.
-          </span>
-        </div>
+      <div class="atendimento-formats__copy">
+        <span class="atendimento-formats__kicker">Atendimento jurídico empresarial</span>
+        <h2>Sua empresa pode contar com a MESP em diferentes áreas e formatos</h2>
+        <p>
+          Nem toda demanda exige uma assessoria mensal. Em alguns casos, a empresa precisa resolver
+          uma situação específica com segurança. Em outros, o ideal é contar com acompanhamento
+          jurídico contínuo para prevenir riscos, organizar documentos, estruturar decisões e proteger o negócio.
+        </p>
+        <p>
+          A MESP atende empresas e empresários em demandas pontuais ou por meio de assessoria jurídica
+          mensal, com atuação estratégica em diferentes áreas do Direito Empresarial, Civil, Trabalhista e Preventivo.
+        </p>
+        <a class="atendimento-formats__btn js-wa-cta" data-wa-source="atendimento-formatos" href="#">
+          Entender o melhor formato para minha empresa
+        </a>
+        <span class="atendimento-formats__footnote">
+          Atendimento online para empresas de todo o Brasil ou presencialmente no escritório, em Osasco/SP, mediante agendamento.
+        </span>
       </div>
 
-      <div class="atendimento-pin__right" aria-live="polite">
-        <article class="atendimento-panel atendimento-panel--demand is-active" data-atendimento-panel="0">
-          <div class="atendimento-panel__inner atendimento-panel__inner--demand">
-            <div class="atendimento-panel__card atendimento-panel__card--format">
-              <span class="atendimento-panel__eyebrow">Formato de atendimento</span>
-              <h3>Atendimento pontual</h3>
-              <p>
-                Para empresas que precisam resolver uma demanda específica, receber orientação antes
-                de uma decisão importante ou tratar um problema jurídico já existente com segurança.
-              </p>
-              <strong class="atendimento-panel__highlight">
-                Indicado para quem precisa de uma solução objetiva, sem necessariamente contratar uma assessoria mensal.
-              </strong>
-            </div>
-          </div>
+      <div class="atendimento-formats__cards" aria-label="Formatos de atendimento">
+        <article class="atendimento-format-card">
+          <span class="atendimento-format-card__label">Formato de atendimento</span>
+          <h3>Atendimento pontual</h3>
+          <p>
+            Para empresas que precisam resolver uma demanda específica, receber orientação antes de uma decisão
+            importante ou tratar um problema jurídico já existente com segurança.
+          </p>
+          <strong>
+            Indicado para quem precisa de uma solução objetiva, sem necessariamente contratar uma assessoria mensal.
+          </strong>
         </article>
 
-        <article class="atendimento-panel atendimento-panel--monthly" data-atendimento-panel="1">
-          <div class="atendimento-panel__bg" aria-hidden="true"></div>
-          <div class="atendimento-panel__shade" aria-hidden="true"></div>
-
-          <div class="atendimento-panel__inner atendimento-panel__inner--monthly">
-            <div class="atendimento-panel__card atendimento-panel__card--format atendimento-panel__card--glass">
-              <span class="atendimento-panel__eyebrow">Formato de atendimento</span>
-              <h3>Assessoria jurídica mensal</h3>
-              <p>
-                Para empresas que desejam acompanhamento contínuo, prevenção de riscos, suporte nas
-                decisões do dia a dia e organização jurídica da rotina empresarial.
-              </p>
-              <div class="atendimento-panel__quote">
-                Indicado para quem quer reduzir passivos, agir com mais segurança e contar com suporte jurídico recorrente.
-              </div>
-            </div>
-          </div>
+        <article class="atendimento-format-card atendimento-format-card--featured">
+          <span class="atendimento-format-card__label">Formato de atendimento</span>
+          <h3>Assessoria jurídica mensal</h3>
+          <p>
+            Para empresas que desejam acompanhamento contínuo, prevenção de riscos, suporte nas decisões do dia a dia
+            e organização jurídica da rotina empresarial.
+          </p>
+          <strong>
+            Indicado para quem quer reduzir passivos, agir com mais segurança e contar com suporte jurídico recorrente.
+          </strong>
         </article>
-      </div>
-
-      <div class="atendimento-pin__progress" aria-hidden="true">
-        <span data-atendimento-progress></span>
       </div>
 
     </div>

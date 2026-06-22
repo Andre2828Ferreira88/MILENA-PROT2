@@ -21,11 +21,13 @@
   <link rel="stylesheet" href="assets/css/sections/cta-final.css" />
   <link rel="stylesheet" href="assets/css/sections/included.css">
   <link rel="stylesheet" href="assets/css/compact.css?v=mobile-hero-fix-v47" />
-  <link rel="stylesheet" href="assets/css/sections/atendimento-pin.css?v=mobile-no-pin-v46" />
+  <link rel="stylesheet" href="assets/css/sections/atendimento-pin.css?v=formats-clean-v62" />
   <link rel="stylesheet" href="assets/css/sections/demandas-slider.css?v=textos-v52" />
   <link rel="stylesheet" href="./assets/css/typography-fine.css?v=hero-topo-fino-v39">
   <link rel="stylesheet" href="assets/css/sections/authority-stats-premium.css?v=authority-v55" />
 
+  <link rel="stylesheet" href="assets/css/remove-label-icons.css?v=sem-icones-v60" />
+  <link rel="stylesheet" href="assets/css/sections/page-rhythm.css?v=padrao-v64" />
 </head>
 
 <body id="topo">
@@ -191,72 +193,54 @@
   </section>
 
   <!-- BLOCO 3 — FORMAS DE ATENDIMENTO / GSAP PIN -->
-  <section class="section atendimento-pin" id="atendimento" data-atendimento-pin>
-    <div class="atendimento-pin__grid">
+    <!-- BLOCO 3 — FORMAS DE ATENDIMENTO -->
+  <section class="section atendimento-formats" id="atendimento">
+    <div class="atendimento-formats__wrap">
 
-      <div class="atendimento-pin__left">
-        <div class="atendimento-pin__copy">
-          <span class="atendimento-pin__kicker">Atendimento jurídico empresarial</span>
-          <h2>Sua empresa pode contar com a MESP em diferentes áreas e formatos</h2>
-          <p>
-            Nem toda demanda exige uma assessoria mensal. Em alguns casos, a empresa precisa resolver
-            uma situação específica com segurança. Em outros, o ideal é contar com acompanhamento
-            jurídico contínuo para prevenir riscos, organizar documentos, estruturar decisões e
-            proteger o negócio.
-          </p>
-          <p>
-            A MESP atende empresas e empresários em demandas pontuais ou por meio de assessoria
-            jurídica mensal, com atuação estratégica em diferentes áreas do Direito Empresarial,
-            Civil, Trabalhista e Preventivo.
-          </p>
-          <a class="atendimento-pin__btn js-wa-cta" data-wa-source="atendimento-formatos" href="#">
-            Entender o melhor formato para minha empresa
-          </a>
-          <span class="atendimento-pin__footnote">
-            Atendimento online para empresas de todo o Brasil ou presencialmente no escritório, em Osasco/SP, mediante agendamento.
-          </span>
-        </div>
+      <div class="atendimento-formats__copy">
+        <span class="atendimento-formats__kicker">Atendimento jurídico empresarial</span>
+        <h2>Sua empresa pode contar com a MESP em diferentes áreas e formatos</h2>
+        <p>
+          Nem toda demanda exige uma assessoria mensal. Em alguns casos, a empresa precisa resolver
+          uma situação específica com segurança. Em outros, o ideal é contar com acompanhamento
+          jurídico contínuo para prevenir riscos, organizar documentos, estruturar decisões e proteger o negócio.
+        </p>
+        <p>
+          A MESP atende empresas e empresários em demandas pontuais ou por meio de assessoria jurídica
+          mensal, com atuação estratégica em diferentes áreas do Direito Empresarial, Civil, Trabalhista e Preventivo.
+        </p>
+        <a class="atendimento-formats__btn js-wa-cta" data-wa-source="atendimento-formatos" href="#">
+          Entender o melhor formato para minha empresa
+        </a>
+        <span class="atendimento-formats__footnote">
+          Atendimento online para empresas de todo o Brasil ou presencialmente no escritório, em Osasco/SP, mediante agendamento.
+        </span>
       </div>
 
-      <div class="atendimento-pin__right" aria-live="polite">
-        <article class="atendimento-panel atendimento-panel--demand is-active" data-atendimento-panel="0">
-          <div class="atendimento-panel__inner atendimento-panel__inner--demand">
-            <div class="atendimento-panel__card atendimento-panel__card--format">
-              <span class="atendimento-panel__eyebrow">Formato de atendimento</span>
-              <h3>Atendimento pontual</h3>
-              <p>
-                Para empresas que precisam resolver uma demanda específica, receber orientação antes
-                de uma decisão importante ou tratar um problema jurídico já existente com segurança.
-              </p>
-              <strong class="atendimento-panel__highlight">
-                Indicado para quem precisa de uma solução objetiva, sem necessariamente contratar uma assessoria mensal.
-              </strong>
-            </div>
-          </div>
+      <div class="atendimento-formats__cards" aria-label="Formatos de atendimento">
+        <article class="atendimento-format-card">
+          <span class="atendimento-format-card__label">Formato de atendimento</span>
+          <h3>Atendimento pontual</h3>
+          <p>
+            Para empresas que precisam resolver uma demanda específica, receber orientação antes de uma decisão
+            importante ou tratar um problema jurídico já existente com segurança.
+          </p>
+          <strong>
+            Indicado para quem precisa de uma solução objetiva, sem necessariamente contratar uma assessoria mensal.
+          </strong>
         </article>
 
-        <article class="atendimento-panel atendimento-panel--monthly" data-atendimento-panel="1">
-          <div class="atendimento-panel__bg" aria-hidden="true"></div>
-          <div class="atendimento-panel__shade" aria-hidden="true"></div>
-
-          <div class="atendimento-panel__inner atendimento-panel__inner--monthly">
-            <div class="atendimento-panel__card atendimento-panel__card--format atendimento-panel__card--glass">
-              <span class="atendimento-panel__eyebrow">Formato de atendimento</span>
-              <h3>Assessoria jurídica mensal</h3>
-              <p>
-                Para empresas que desejam acompanhamento contínuo, prevenção de riscos, suporte nas
-                decisões do dia a dia e organização jurídica da rotina empresarial.
-              </p>
-              <div class="atendimento-panel__quote">
-                Indicado para quem quer reduzir passivos, agir com mais segurança e contar com suporte jurídico recorrente.
-              </div>
-            </div>
-          </div>
+        <article class="atendimento-format-card atendimento-format-card--featured">
+          <span class="atendimento-format-card__label">Formato de atendimento</span>
+          <h3>Assessoria jurídica mensal</h3>
+          <p>
+            Para empresas que desejam acompanhamento contínuo, prevenção de riscos, suporte nas decisões do dia a dia
+            e organização jurídica da rotina empresarial.
+          </p>
+          <strong>
+            Indicado para quem quer reduzir passivos, agir com mais segurança e contar com suporte jurídico recorrente.
+          </strong>
         </article>
-      </div>
-
-      <div class="atendimento-pin__progress" aria-hidden="true">
-        <span data-atendimento-progress></span>
       </div>
 
     </div>
